@@ -4,15 +4,17 @@
   "description": "Udacity Project 1",
   "main": "dist/index.js",
   "scripts": {
-    "eslint": "eslint -c .eslintrc --ext .ts src/",
-    "prettier": "prettier --config .prettierrc --write src/",
-    "format": "npm run eslint && npm run prettier",
+    "lint": "eslint -c .eslintrc --ext .ts src/",
     "start": "nodemon src/index.ts",
     "build": "npx tsc",
     "test": "npm run build && jasmine"
   },
   "keywords": [],
-  "author": "",
+  "author": {
+    "name": "Sandro Yassa",
+    "email": "sandrow33@hotmail.com",
+    "url": "https://www.linkedin.com/in/sandro-yassa/"
+  },
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.3",
