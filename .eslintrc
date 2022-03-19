@@ -1,0 +1,25 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "rules": {
+    // 1: Warning | 2: Error
+    "prettier/prettier": 2,
+    "no-use-before-define": [2, { "functions": true, "classes": true }],
+    "no-var": 2,
+    "prefer-const": 2,
+    "no-console": 1
+  },
+  "env": {
+    "node": true,
+    "es6": true
+  }
+}
