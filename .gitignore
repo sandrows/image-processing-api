@@ -1,8 +1,5 @@
-# Project specific
 .idea/
 /node_modules/
 /dist/
 /media/*
-
-# Must stay here to have precedence
-!.gitkeep
+!/media/originals/
