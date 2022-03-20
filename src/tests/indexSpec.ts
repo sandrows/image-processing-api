@@ -1,21 +1,24 @@
 import supertest from 'supertest';
 import app from '../index';
+import sharp from 'sharp';
 
 const req = supertest(app);
 
 describe('Image API', () => {
   it('should load image given correct params', async () => {
-    const res = await req
-      .get('/api/image/')
-      .query({ filename: 'imgA', height: '200', width: '200' });
-    expect(res.headers['content-type']).toEqual('image/jpeg');
+    const query = { filename: 'imgA', height: '200', width: '200' };
+    const res = await req.get('/api/image/').query(query);
+    const meta = await sharp(res.body).metadata();
     expect(res.status).toBe(200);
+    expect(res.headers['content-type']).toEqual('image/jpeg');
+    expect(meta.height).toBe(parseInt(query.height));
+    expect(meta.width).toBe(parseInt(query.width));
   });
 
   it('should load original image given only filename', async () => {
     const res = await req.get('/api/image/').query({ filename: 'imgA' });
-    expect(res.headers['content-type']).toEqual('image/jpeg');
     expect(res.status).toBe(200);
+    expect(res.headers['content-type']).toEqual('image/jpeg');
   });
 
   it('should show not found given non existent image', async () => {
