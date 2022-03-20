@@ -8,11 +8,13 @@ describe('Image API', () => {
     const res = await req
       .get('/api/image/')
       .query({ filename: 'imgA', height: '200', width: '200' });
+    expect(res.headers['content-type']).toEqual('image/jpeg');
     expect(res.status).toBe(200);
   });
 
   it('should load original image given only filename', async () => {
     const res = await req.get('/api/image/').query({ filename: 'imgA' });
+    expect(res.headers['content-type']).toEqual('image/jpeg');
     expect(res.status).toBe(200);
   });
 
