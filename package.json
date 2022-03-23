@@ -4,6 +4,7 @@
   "description": "Udacity Project 1",
   "main": "dist/index.js",
   "scripts": {
+    "prettier": "prettier --config .prettierrc --write src/",
     "lint": "eslint -c .eslintrc --ext .ts src/",
     "start": "nodemon src/index.ts",
     "build": "npx tsc",
